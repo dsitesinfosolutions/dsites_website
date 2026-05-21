@@ -104,7 +104,7 @@ export default function UpdatesPage() {
   const events = updatesData.filter((item) => item.type === "event");
 
   return (
-    <main className="relative min-h-screen bg-gradient-to-b from-background via-background to-background/95 text-foreground overflow-hidden">
+    <main className="relative min-h-screen bg-gradient-to-b from-background via-background to-background/95 text-foreground overflow-x-hidden">
       <ScrollProgress />
       <Navbar />
 
@@ -137,7 +137,7 @@ export default function UpdatesPage() {
           >
             Notice Board
           </motion.span>
-          <motion.h1 className="mt-4 text-4xl sm:text-5xl font-bold" variants={itemVariants}>
+          <motion.h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold" variants={itemVariants}>
             Latest <span className="text-gradient">Updates & Offers</span>
           </motion.h1>
           <motion.p className="mt-6 text-lg text-muted-foreground" variants={itemVariants}>
@@ -176,9 +176,9 @@ export default function UpdatesPage() {
               </div>
 
               <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex gap-6">
+                <div className="flex -ml-4 md:-ml-6">
                   {ads.map((item) => (
-                    <div key={item.id} className="flex-[0_0_100%] min-w-0">
+                    <div key={item.id} className="flex-[0_0_100%] min-w-0 pl-4 md:pl-6">
                       <div className="group glass-strong rounded-3xl overflow-hidden border border-white/10 hover:border-[var(--cyan-glow)]/50 transition-all duration-300 flex flex-col md:flex-row h-full">
                         {/* Image Area - Square Aspect Ratio */}
                         <div className="relative w-full md:w-1/2 aspect-square overflow-hidden bg-black/20 shrink-0">
@@ -197,7 +197,7 @@ export default function UpdatesPage() {
                           <div className="text-sm text-[var(--cyan-glow)] font-medium mb-3">
                             {item.date}
                           </div>
-                          <h3 className="text-3xl md:text-4xl font-bold mb-4">{item.title}</h3>
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{item.title}</h3>
                           <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 flex-1">
                             {item.desc}
                           </p>

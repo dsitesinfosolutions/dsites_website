@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="relative min-h-screen bg-background text-foreground">
+    <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden w-full">
       <SplashScreen />
       <ScrollProgress />
       <Navbar />

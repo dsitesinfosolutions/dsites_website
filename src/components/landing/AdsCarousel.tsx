@@ -77,9 +77,9 @@ export default function AdsCarousel() {
           transition={{ duration: 0.5 }}
         >
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+            <div className="flex -ml-4 md:-ml-6">
               {ads.map((item) => (
-                <div key={item.id} className="flex-[0_0_100%] min-w-0">
+                <div key={item.id} className="flex-[0_0_100%] min-w-0 pl-4 md:pl-6">
                   <div className="group glass-strong rounded-3xl overflow-hidden border border-white/10 hover:border-[var(--cyan-glow)]/50 transition-all duration-300 flex flex-col md:flex-row h-full">
                     {/* Image Area - Square Aspect Ratio */}
                     <div className="relative w-full md:w-1/2 aspect-square overflow-hidden bg-black/20 shrink-0">
@@ -98,7 +98,9 @@ export default function AdsCarousel() {
                       <div className="text-sm text-[var(--cyan-glow)] font-medium mb-3">
                         {item.date}
                       </div>
-                      <h3 className="text-3xl md:text-4xl font-bold mb-4">{item.title}</h3>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        {item.title}
+                      </h3>
                       <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 flex-1">
                         {item.desc}
                       </p>

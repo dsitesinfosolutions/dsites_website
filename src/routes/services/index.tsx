@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/")({
 
 function ServicesPage() {
   return (
-    <main className="relative min-h-screen bg-background text-foreground pt-20">
+    <main className="relative min-h-screen bg-background text-foreground pt-20 overflow-x-hidden w-full">
       <ScrollProgress />
       <Navbar />
       <Services />

@@ -24,7 +24,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
   }
 
   return (
-    <main className="relative min-h-screen bg-background text-foreground pt-20">
+    <main className="relative min-h-screen bg-background text-foreground pt-20 overflow-x-hidden w-full">
       <ScrollProgress />
       <Navbar />
 

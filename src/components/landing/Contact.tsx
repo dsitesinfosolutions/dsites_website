@@ -210,7 +210,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="relative min-h-screen bg-gradient-to-b from-background via-background to-background/95 text-foreground overflow-hidden">
+    <main className="relative min-h-screen bg-gradient-to-b from-background via-background to-background/95 text-foreground overflow-x-hidden w-full">
       <ScrollProgress />
       <Navbar />
 
