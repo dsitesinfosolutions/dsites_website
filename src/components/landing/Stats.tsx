@@ -38,10 +38,10 @@ export default function Stats() {
 
       <div className="relative mx-auto max-w-7xl px-5 w-full">
         <div className="text-center max-w-5xl mx-auto">
-          <span className="text-xs font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
+          <span className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
             About Us
           </span>
-          <h2 className="mt-8 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+          <h2 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
             We are <span className="text-gradient">D-Sites Infosolutions</span>
           </h2>
           <div className="mt-8 text-muted-foreground text-lg md:text-xl space-y-6">

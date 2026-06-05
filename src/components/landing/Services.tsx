@@ -11,16 +11,14 @@ export default function Services({ limit, compact }: { limit?: number; compact?:
       <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[700px] rounded-full bg-[var(--purple-glow)] opacity-15 blur-[140px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-5">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div className="max-w-2xl">
-            <span className="text-xs font-medium text-[var(--cyan-glow)] tracking-widest uppercase">
-              Our Services
-            </span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold">
-              Everything you need to <span className="text-gradient">scale digitally</span>
-            </h2>
-          </div>
-          <p className="text-muted-foreground max-w-md">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
+            Our Services
+          </span>
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold">
+            Everything you need to <span className="text-gradient">scale digitally</span>
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground">
             From idea to launch and beyond — we ship modern, secure, and revenue-driving products.
           </p>
         </div>

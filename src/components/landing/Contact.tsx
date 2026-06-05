@@ -255,13 +255,13 @@ export default function ContactPage() {
             viewport={{ once: true }}
           >
             <motion.span
-              className="text-xs font-medium text-cyan-400 tracking-widest uppercase"
+              className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5"
               variants={itemVariants}
             >
               Get in Touch
             </motion.span>
             <motion.h1
-              className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold"
+              className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold"
               variants={itemVariants}
             >
               Let's Build Something{" "}
@@ -542,10 +542,10 @@ export default function ContactPage() {
             viewport={{ once: true }}
           >
             <div className="text-center mb-12">
-              <span className="text-xs font-medium text-cyan-400 tracking-widest uppercase">
+              <span className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
                 Common Questions
               </span>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-bold">Frequently Asked Questions</h2>
+              <h2 className="mt-6 text-4xl md:text-5xl font-bold">Frequently Asked Questions</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">

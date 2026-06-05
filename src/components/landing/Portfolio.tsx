@@ -47,16 +47,14 @@ export default function Portfolio() {
   return (
     <section id="work" className="relative py-28">
       <div className="mx-auto max-w-7xl px-5">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div>
-            <span className="text-xs font-medium text-[var(--cyan-glow)] tracking-widest uppercase">
-              Selected Work
-            </span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold">
-              Work that <span className="text-gradient">moves metrics</span>
-            </h2>
-          </div>
-          <p className="text-muted-foreground max-w-md">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
+            Selected Work
+          </span>
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold">
+            Work that <span className="text-gradient">moves metrics</span>
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground">
             A glimpse into the products, platforms, and campaigns we've shipped for global teams.
           </p>
         </div>

@@ -1,18 +1,31 @@
 const techs = [
-  "React", "Next.js", "Node.js", "Python", "Flutter", "AWS",
-  "Docker", "Kubernetes", "MongoDB", "PostgreSQL", "TypeScript",
-  "GraphQL", "OpenAI", "Stripe", "Tailwind", "Vercel",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Python",
+  "Flutter",
+  "AWS",
+  "Docker",
+  "Kubernetes",
+  "MongoDB",
+  "PostgreSQL",
+  "TypeScript",
+  "GraphQL",
+  "OpenAI",
+  "Stripe",
+  "Tailwind",
+  "Vercel",
 ];
 
 export default function TechStack() {
   const loop = [...techs, ...techs];
   return (
     <section className="relative py-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-5 text-center">
-        <span className="text-xs font-medium text-[var(--cyan-glow)] tracking-widest uppercase">
+      <div className="mx-auto max-w-7xl px-5 text-center mb-16">
+        <span className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
           Tech Stack
         </span>
-        <h2 className="mt-3 text-3xl md:text-4xl font-bold">
+        <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold">
           Powered by <span className="text-gradient">modern technologies</span>
         </h2>
       </div>

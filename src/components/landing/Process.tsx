@@ -2,21 +2,29 @@ import { motion } from "framer-motion";
 import { Search, PenTool, Code2, Rocket } from "lucide-react";
 
 const steps = [
-  { icon: Search, title: "Discovery", desc: "We dive deep into your goals, users, and constraints." },
+  {
+    icon: Search,
+    title: "Discovery",
+    desc: "We dive deep into your goals, users, and constraints.",
+  },
   { icon: PenTool, title: "Planning", desc: "Roadmap, architecture, and pixel-precise design." },
   { icon: Code2, title: "Development", desc: "Agile sprints, weekly demos, continuous delivery." },
-  { icon: Rocket, title: "Launch & Support", desc: "Smooth launch, monitoring, and ongoing optimization." },
+  {
+    icon: Rocket,
+    title: "Launch & Support",
+    desc: "Smooth launch, monitoring, and ongoing optimization.",
+  },
 ];
 
 export default function Process() {
   return (
     <section id="process" className="relative py-28">
       <div className="mx-auto max-w-7xl px-5">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-medium text-[var(--cyan-glow)] tracking-widest uppercase">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5">
             Our Process
           </span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold">
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold">
             A <span className="text-gradient">proven</span> path from idea to launch
           </h2>
         </div>

@@ -74,15 +74,6 @@ export default function Hero() {
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs text-muted-foreground"
-            >
-              <span className="h-2 w-2 rounded-full bg-[var(--cyan-glow)] animate-pulse" />
-              Trusted by 200+ growing companies worldwide
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}

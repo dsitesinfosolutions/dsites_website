@@ -132,12 +132,15 @@ export default function UpdatesPage() {
           viewport={{ once: true }}
         >
           <motion.span
-            className="text-xs font-medium text-[var(--cyan-glow)] tracking-widest uppercase"
+            className="text-sm md:text-base font-bold text-[var(--cyan-glow)] tracking-widest uppercase px-4 py-2 rounded-full border border-[var(--cyan-glow)]/30 bg-[var(--cyan-glow)]/5"
             variants={itemVariants}
           >
             Notice Board
           </motion.span>
-          <motion.h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold" variants={itemVariants}>
+          <motion.h1
+            className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold"
+            variants={itemVariants}
+          >
             Latest <span className="text-gradient">Updates & Offers</span>
           </motion.h1>
           <motion.p className="mt-6 text-lg text-muted-foreground" variants={itemVariants}>
@@ -197,7 +200,9 @@ export default function UpdatesPage() {
                           <div className="text-sm text-[var(--cyan-glow)] font-medium mb-3">
                             {item.date}
                           </div>
-                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{item.title}</h3>
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                            {item.title}
+                          </h3>
                           <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 flex-1">
                             {item.desc}
                           </p>
