@@ -34,11 +34,11 @@ export default function TechStack() {
         <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-background to-transparent" />
         <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-background to-transparent" />
 
-        <div className="flex animate-marquee gap-4 w-max">
+        <div className="flex animate-marquee gap-4 w-max hover:[animation-play-state:paused]">
           {loop.map((t, i) => (
             <div
               key={i}
-              className="glass rounded-xl px-6 py-4 min-w-[160px] text-center gradient-border hover:bg-white/[0.08] transition"
+              className="glass rounded-xl px-6 py-4 min-w-[160px] text-center gradient-border hover:bg-white/[0.08] hover:scale-110 hover:border-[var(--cyan-glow)]/40 hover:shadow-[0_0_15px_rgba(0,255,255,0.15)] transition-all duration-300 cursor-default"
             >
               <span className="font-display font-medium text-foreground/90">{t}</span>
             </div>

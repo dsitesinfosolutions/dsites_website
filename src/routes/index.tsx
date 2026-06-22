@@ -9,7 +9,6 @@ import Testimonials from "@/components/landing/Testimonials";
 import Process from "@/components/landing/Process";
 import Footer from "@/components/landing/Footer";
 import ScrollProgress from "@/components/landing/ScrollProgress";
-import AdsCarousel from "@/components/landing/AdsCarousel";
 import SplashScreen from "@/components/landing/SplashScreen";
 
 export const Route = createFileRoute("/")({
@@ -46,7 +45,6 @@ function Index() {
       <ScrollProgress />
       <Navbar />
       <Hero />
-      <AdsCarousel />
       <Stats />
       <Services compact limit={4} />
       <WhyUs />

@@ -1,6 +1,6 @@
 import { Facebook, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo_d2.png";
 
 export default function Footer() {
   return (

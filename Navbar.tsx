@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { servicesData } from "../data/services"; // Import your services data
+import { servicesData } from "./src/data/services"; // Import your services data
 
 export function Navbar() {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
@@ -10,7 +10,7 @@ export function Navbar() {
       {/* Company Logo - Made bigger and more visible */}
       <Link to="/" className="flex items-center gap-2">
         {/* If you have an image logo, uncomment and use the img tag below instead of the text: */}
-        {/* <img src="/logo.png" alt="D-Sites Logo" className="h-14 w-auto" /> */}
+        {/* <img src="/logo_d2.png" alt="D-Sites Logo" className="h-14 w-auto" /> */}
         <span className="text-3xl font-extrabold text-blue-900 tracking-wider">D-SITES</span>
       </Link>
 
@@ -36,10 +36,8 @@ export function Navbar() {
               <ul className="flex flex-col py-2">
                 {servicesData.map((service) => (
                   <li key={service.id}>
-                    {/* Using @ts-expect-error as TanStack Router expects literal strings for 'to', but we are passing dynamic strings here */}
-                    {/* @ts-expect-error */}
                     <Link
-                      to={`/services/${service.id}`}
+                      to={`/services/${service.id}` as any}
                       className="block px-4 py-3 text-base text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                       onClick={() => setIsServicesDropdownOpen(false)}
                     >

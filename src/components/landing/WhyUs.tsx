@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Check, Zap, ShieldCheck, MessagesSquare, Rocket, HeartHandshake } from "lucide-react";
 
@@ -35,6 +36,13 @@ const points = [
 ];
 
 export default function WhyUs() {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { currentTarget, clientX, clientY } = e;
+    const { left, top } = currentTarget.getBoundingClientRect();
+    currentTarget.style.setProperty("--mouse-x", `${clientX - left}px`);
+    currentTarget.style.setProperty("--mouse-y", `${clientY - top}px`);
+  };
+
   return (
     <section id="why" className="relative py-28">
       <div className="mx-auto max-w-7xl px-5">
@@ -60,11 +68,20 @@ export default function WhyUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 4) * 0.06 }}
-                className="glass rounded-2xl p-5 gradient-border hover:bg-white/[0.06] transition"
+                onMouseMove={handleMouseMove}
+                whileHover={{ y: -6, scale: 1.01 }}
+                className="group relative overflow-hidden glass rounded-2xl p-5 gradient-border transition-all duration-300"
               >
-                <Icon className="h-5 w-5 text-[var(--cyan-glow)]" />
-                <h3 className="mt-4 font-semibold">{p.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{p.desc}</p>
+                {/* Spotlight Overlay */}
+                <div
+                  className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background: "radial-gradient(220px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(0, 255, 255, 0.12), transparent 80%)",
+                  }}
+                />
+                <Icon className="h-5 w-5 text-[var(--cyan-glow)] relative z-10" />
+                <h3 className="mt-4 font-semibold relative z-10">{p.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground relative z-10">{p.desc}</p>
               </motion.div>
             );
           })}

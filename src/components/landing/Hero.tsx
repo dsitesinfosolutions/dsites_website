@@ -1,9 +1,32 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, PlayCircle, Star, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero_image.png";
 
 import React, { useState, useEffect } from "react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  },
+};
 
 // Define images and their associated details for the carousel
 const carouselSlides = [
@@ -48,6 +71,10 @@ const carouselSlides = [
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 1000], [0, 180]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -220]);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
@@ -68,27 +95,42 @@ export default function Hero() {
       <div className="absolute inset-0 grid-bg pointer-events-none" />
 
       {/* floating orbs */}
-      <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-[var(--electric)] opacity-30 blur-[120px] animate-pulse-glow" />
-      <div className="absolute top-40 -right-20 h-96 w-96 rounded-full bg-[var(--purple-glow)] opacity-30 blur-[140px] animate-pulse-glow" />
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-[var(--electric)] opacity-30 blur-[120px] animate-pulse-glow pointer-events-none"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute top-40 -right-20 h-96 w-96 rounded-full bg-[var(--purple-glow)] opacity-30 blur-[140px] animate-pulse-glow pointer-events-none"
+      />
 
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
               className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
             >
-              Transforming Businesses Through{" "}
-              <span className="text-gradient">Smart Digital Solutions</span>
+              {"Transforming Businesses Through ".split(" ").map((word, i) => (
+                <motion.span key={i} variants={wordVariants} className="inline-block mr-2 md:mr-3">
+                  {word}
+                </motion.span>
+              ))}
+              <br className="hidden sm:inline" />
+              {"Smart Digital Solutions".split(" ").map((word, i) => (
+                <motion.span key={i} variants={wordVariants} className="inline-block mr-2 md:mr-3 text-gradient">
+                  {word}
+                </motion.span>
+              ))}
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl"
             >
               We build powerful websites, scalable software, and data-driven digital strategies that
@@ -98,7 +140,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               <Link
@@ -120,7 +162,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
               className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground"
             >
               <div className="flex items-center gap-1.5">

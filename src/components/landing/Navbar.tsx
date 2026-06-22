@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo_d2.png";
 import { servicesData } from "@/data/services";
 
 const links = [
@@ -23,6 +23,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -78,10 +79,23 @@ export default function Navbar() {
                 <DropdownMenuTrigger asChild>
                   <Link
                     to="/services"
-                    className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    className="relative inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    onMouseEnter={() => {
+                      handleMouseEnter();
+                      setHoveredItem("Services");
+                    }}
+                    onMouseLeave={() => {
+                      handleMouseLeave();
+                      setHoveredItem(null);
+                    }}
                   >
+                    {hoveredItem === "Services" && (
+                      <motion.div
+                        layoutId="nav-hover-pill"
+                        className="absolute inset-0 bg-white/[0.05] border border-white/[0.05] rounded-lg -z-10"
+                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                      />
+                    )}
                     Services
                     <ChevronDown className="h-4 w-4" />
                   </Link>
@@ -114,8 +128,17 @@ export default function Navbar() {
                   key={l.label}
                   to={l.to as any}
                   hash={l.hash}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onMouseEnter={() => setHoveredItem(l.label)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className="relative px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
+                  {hoveredItem === l.label && (
+                    <motion.div
+                      layoutId="nav-hover-pill"
+                      className="absolute inset-0 bg-white/[0.05] border border-white/[0.05] rounded-lg -z-10"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
                   {l.label}
                 </Link>
               ))}

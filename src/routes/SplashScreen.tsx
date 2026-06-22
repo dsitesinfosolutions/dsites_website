@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo_d2.png";
 
 export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);

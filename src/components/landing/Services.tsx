@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -5,6 +6,13 @@ import { servicesData } from "@/data/services";
 
 export default function Services({ limit, compact }: { limit?: number; compact?: boolean }) {
   const displayedServices = limit ? servicesData.slice(0, limit) : servicesData;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { currentTarget, clientX, clientY } = e;
+    const { left, top } = currentTarget.getBoundingClientRect();
+    currentTarget.style.setProperty("--mouse-x", `${clientX - left}px`);
+    currentTarget.style.setProperty("--mouse-y", `${clientY - top}px`);
+  };
 
   return (
     <section id="services" className="relative py-28">
@@ -33,17 +41,26 @@ export default function Services({ limit, compact }: { limit?: number; compact?:
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-                className="glass rounded-2xl p-8 gradient-border flex flex-col"
+                onMouseMove={handleMouseMove}
+                whileHover={{ y: -8, scale: 1.015 }}
+                className="group relative overflow-hidden glass rounded-2xl p-8 gradient-border flex flex-col transition-all duration-300"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-xl bg-gradient-primary shrink-0 grid place-items-center">
+                {/* Spotlight Overlay */}
+                <div
+                  className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background: "radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(0, 255, 255, 0.12), transparent 80%)",
+                  }}
+                />
+                <div className="flex items-center gap-4 mb-4 relative z-10">
+                  <div className="h-12 w-12 rounded-xl bg-gradient-primary shrink-0 grid place-items-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                     <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-xl font-bold">{s.name}</h3>
                 </div>
-                <p className="text-muted-foreground mb-8 leading-relaxed">{s.description}</p>
+                <p className="text-muted-foreground mb-8 leading-relaxed relative z-10">{s.description}</p>
 
-                <div className="space-y-6 mt-auto">
+                <div className="space-y-6 mt-auto relative z-10">
                   {!compact && (
                     <>
                       <div>
