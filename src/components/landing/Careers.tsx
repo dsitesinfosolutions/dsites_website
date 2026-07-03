@@ -45,7 +45,7 @@ const careersData: JobOpening[] = [
     title: "Business Development Executive Intern",
     department: "Business Development",
     location: "Remote",
-    duration: "3-6 Months",
+    duration: "3 Months",
     stipend: "Stipend + Performance-Based Incentives",
     tags: ["Lead Generation", "Client Relations", "Market Research", "B2B Sales"],
     description:
@@ -161,12 +161,13 @@ export default function CareersPage() {
         email: formData.email,
         phone: formData.phone,
         service: `BDE Intern Application`,
-        message: `Candidate Name: ${formData.name}\n` +
-                 `Email: ${formData.email}\n` +
-                 `Phone: ${formData.phone}\n` +
-                 `Portfolio/LinkedIn/CV Link: ${formData.portfolio}\n` +
-                 `Experience: ${formData.experience || "N/A"}\n\n` +
-                 `Cover Letter:\n${formData.message}`,
+        message:
+          `Candidate Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone}\n` +
+          `Portfolio/LinkedIn/CV Link: ${formData.portfolio}\n` +
+          `Experience: ${formData.experience || "N/A"}\n\n` +
+          `Cover Letter:\n${formData.message}`,
       };
 
       // 1. Submit to EmailJS
@@ -195,7 +196,10 @@ export default function CareersPage() {
             body: blob,
           });
         } catch (sheetErr) {
-          console.error("Google Sheets Submission Error (Ignored to prevent blocking form success):", sheetErr);
+          console.error(
+            "Google Sheets Submission Error (Ignored to prevent blocking form success):",
+            sheetErr,
+          );
         }
       }
 
