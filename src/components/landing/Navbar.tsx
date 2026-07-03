@@ -15,7 +15,7 @@ import { servicesData } from "@/data/services";
 const links = [
   { label: "Why Us", to: "/", hash: "why" },
   { label: "Process", to: "/", hash: "process" },
-  { label: "Updates", to: "/updates", hash: undefined },
+  { label: "Careers", to: "/careers", hash: undefined },
   { label: "Contact", to: "/contact", hash: undefined },
 ];
 
