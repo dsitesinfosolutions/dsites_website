@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Briefcase,
@@ -90,6 +90,17 @@ export default function CareersPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (selectedJob) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedJob]);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -504,18 +515,18 @@ export default function CareersPage() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed left-1/2 top-1/2 z-[101] w-full max-w-4xl -translate-x-1/2 -translate-y-1/2 p-4 md:p-6"
             >
-              <div className="relative overflow-hidden rounded-3xl glass-strong border border-white/20 shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
-                {/* Close Button */}
-                <button
-                  onClick={resetForm}
-                  className="absolute right-4 top-4 z-10 rounded-full bg-black/50 p-2 text-white/70 backdrop-blur-md hover:bg-black/90 hover:text-white transition-colors cursor-pointer"
-                  aria-label="Close Modal"
-                >
-                  <X className="h-5 w-5" />
-                </button>
+              {/* Close Button */}
+              <button
+                onClick={resetForm}
+                className="absolute right-8 top-8 md:right-10 md:top-10 z-[102] rounded-full bg-black/50 p-2 text-white/70 backdrop-blur-md hover:bg-black/90 hover:text-white transition-colors cursor-pointer"
+                aria-label="Close Modal"
+              >
+                <X className="h-5 w-5" />
+              </button>
 
+              <div className="relative overflow-y-auto md:overflow-hidden rounded-3xl glass-strong border border-white/20 shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
                 {/* Left Side: Details */}
-                <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto border-b md:border-b-0 md:border-r border-white/10 max-h-[45vh] md:max-h-full">
+                <div className="w-full md:w-1/2 p-6 md:p-8 md:overflow-y-auto border-b md:border-b-0 md:border-r border-white/10 max-h-none md:max-h-full">
                   <span
                     className={`text-[10px] font-bold px-2.5 py-1 rounded-full border mb-4 inline-block ${
                       selectedJob.type === "job"
@@ -558,7 +569,7 @@ export default function CareersPage() {
                 </div>
 
                 {/* Right Side: Apply Form or Success State */}
-                <div className="w-full md:w-1/2 p-6 md:p-8 bg-black/20 overflow-y-auto max-h-[45vh] md:max-h-full flex flex-col justify-center">
+                <div className="w-full md:w-1/2 p-6 md:p-8 bg-black/20 md:overflow-y-auto max-h-none md:max-h-full flex flex-col justify-center">
                   {!isApplying ? (
                     <div className="text-center py-10 md:py-0">
                       <div className="h-16 w-16 bg-[var(--cyan-glow)]/10 rounded-2xl grid place-items-center mx-auto mb-6 border border-[var(--cyan-glow)]/20 text-[var(--cyan-glow)]">
