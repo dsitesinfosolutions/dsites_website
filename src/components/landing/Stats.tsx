@@ -44,28 +44,12 @@ export default function Stats() {
           <h2 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
             We are <span className="text-gradient">D-Sites Infosolutions</span>
           </h2>
-          <div className="mt-8 text-muted-foreground text-lg md:text-xl space-y-6">
+          <div className="mt-8 text-muted-foreground text-lg md:text-xl space-y-6 max-w-4xl mx-auto text-justify leading-relaxed">
             <p>
-              We are a team of{" "}
-              <span className="text-foreground font-medium">
-                passionate developers, designers, and strategists
-              </span>{" "}
-              dedicated to delivering exceptional digital solutions. Founded on the principles of{" "}
-              <span className="text-foreground font-medium">
-                innovation, integrity, and excellence
-              </span>
-              , D-sites Infosolutions has been transforming businesses through cutting-edge
-              technology solutions. We believe in building long-lasting partnerships with our
-              clients and helping them achieve their digital transformation goals.
+              At <span className="text-foreground font-medium">D-Sites Infosolutions</span>, we are a collective of passionate developers, designers, and strategists committed to engineering exceptional digital experiences. Built upon a foundation of innovation, integrity, and operational excellence, we empower businesses globally through custom-tailored, cutting-edge technology. We believe in forging long-lasting partnerships, working closely with our clients to turn ambitious concepts into seamless, market-leading solutions.
             </p>
-            <p className="max-w-3xl mx-auto">
-              With extensive experience across various industries, our team possesses the expertise
-              to tackle complex challenges. We continuously stay ahead of technological trends to
-              provide our clients with the{" "}
-              <span className="text-foreground font-medium">
-                most advanced and effective solutions
-              </span>{" "}
-              available.
+            <p>
+              Leveraging extensive industry experience, our multidisciplinary team possesses the deep technical expertise required to solve complex modern challenges. By continuously pioneering technological trends and refining our processes, we consistently deliver high-performance, future-proof digital solutions that catalyze growth and fuel success.
             </p>
           </div>
         </div>
