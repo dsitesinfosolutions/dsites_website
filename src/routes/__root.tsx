@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import CustomCursor from "@/components/landing/CustomCursor";
+import logo from "@/assets/logo_d2.png";
 
 function NotFoundComponent() {
   return (
@@ -93,6 +94,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
     ],
     links: [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: logo,
+      },
       {
         rel: "stylesheet",
         href: appCss,
