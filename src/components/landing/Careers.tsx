@@ -25,6 +25,7 @@ import ScrollProgress from "./ScrollProgress";
 interface JobOpening {
   id: string;
   type: "job" | "internship";
+  badgeText?: string;
   title: string;
   department: string;
   location: string;
@@ -42,6 +43,7 @@ const careersData: JobOpening[] = [
   {
     id: "intern-bde",
     type: "internship",
+    badgeText: "Internship Program",
     title: "Business Development Executive Intern",
     department: "Business Development",
     location: "Remote",
@@ -63,6 +65,35 @@ const careersData: JobOpening[] = [
       "Basic understanding of IT services (web, apps, cloud, digital marketing).",
       "Familiarity with LinkedIn, email communication, and Google Sheets/Slides.",
       "Currently pursuing or recently graduated with a business, marketing, or communication degree.",
+    ],
+  },
+  {
+    id: "intern-fullstack-js",
+    type: "internship",
+    badgeText: "Internship + Full-Time",
+    title: "Full Stack JavaScript Developer (Intern + Full Time)",
+    department: "Engineering",
+    location: "Remote",
+    duration: "3 Months Internship → Full-Time Role",
+    stipend: "Stipend",
+    tags: ["JavaScript", "TypeScript", "React", "Node.js", "Express", "MongoDB / SQL"],
+    description:
+      "We are looking for a passionate Full Stack JavaScript Developer for an Internship + Full-Time opportunity. Start with a 3-month internship program featuring direct performance-based conversion to a Full-Time Developer position. You will build modern production-ready web applications, scalable backend APIs, and work directly with senior software architects.",
+    responsibilities: [
+      "Develop responsive and dynamic user interfaces using React, Next.js, and TypeScript.",
+      "Build scalable REST APIs, microservices, and backend logic with Node.js and Express.",
+      "Design and maintain databases (MongoDB, PostgreSQL, or MySQL) and write efficient database queries.",
+      "Collaborate with senior developers to review code, debug issues, and optimize application performance.",
+      "Integrate third-party services, APIs, and modern cloud deployment pipelines.",
+      "Demonstrate technical expertise and ownership during the 3-month internship for full-time role conversion.",
+    ],
+    requirements: [
+      "Strong grasp of JavaScript (ES6+), HTML5, CSS3, and TypeScript fundamentals.",
+      "Hands-on experience or project showcase using React/Next.js and Node.js/Express.",
+      "Basic knowledge of RESTful API design, state management, and database concepts.",
+      "Familiarity with Git, GitHub, and modern frontend/backend tooling.",
+      "Strong problem-solving mindset, fast learning ability, and passion for software development.",
+      "Currently pursuing or recently graduated with a degree in Computer Science, IT, or related fields.",
     ],
   },
 ];
@@ -171,11 +202,12 @@ export default function CareersPage() {
         fullName: formData.name,
         email: formData.email,
         phone: formData.phone,
-        service: `BDE Intern Application`,
+        service: selectedJob ? `${selectedJob.title} Application` : "Job Application",
         message:
           `Candidate Name: ${formData.name}\n` +
           `Email: ${formData.email}\n` +
           `Phone: ${formData.phone}\n` +
+          `Applied Role: ${selectedJob?.title || "N/A"}\n` +
           `Portfolio/LinkedIn/CV Link: ${formData.portfolio}\n` +
           `Experience: ${formData.experience || "N/A"}\n\n` +
           `Cover Letter:\n${formData.message}`,
@@ -389,6 +421,7 @@ export default function CareersPage() {
                   className="bg-transparent text-foreground focus:outline-none cursor-pointer"
                 >
                   <option value="all">All Locations</option>
+                  <option value="Remote">Remote</option>
                   <option value="Coimbatore">Coimbatore</option>
                   <option value="Namakkal">Namakkal</option>
                 </select>
@@ -425,7 +458,7 @@ export default function CareersPage() {
                             : "text-purple-400 bg-purple-950/40 border-purple-800/40"
                         }`}
                       >
-                        {role.type === "job" ? "Full-time Job" : "Internship Program"}
+                        {role.badgeText || (role.type === "job" ? "Full-time Job" : "Internship Program")}
                       </span>
                       <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
                         {role.department}
@@ -534,7 +567,7 @@ export default function CareersPage() {
                         : "text-purple-400 bg-purple-950/40 border-purple-800/40"
                     }`}
                   >
-                    {selectedJob.type === "job" ? "Full-time Job" : "Internship"}
+                    {selectedJob.badgeText || (selectedJob.type === "job" ? "Full-time Job" : "Internship")}
                   </span>
 
                   <h3 className="text-2xl md:text-3xl font-bold mb-2">{selectedJob.title}</h3>
